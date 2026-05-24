@@ -10,7 +10,7 @@ class student_ {
     public:
     void setdata(){
     name="hari";
-    age=15;
+    age=17;
     crn=67;
     }
 
