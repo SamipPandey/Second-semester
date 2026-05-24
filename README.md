@@ -26,4 +26,5 @@ The labs are organized sequentially by topic/week:
 ```text
 ├── Lab_01_Basic_Class_Objects/
 │   ├── car.cpp
+|   |── student.cpp 
 └── README.md
