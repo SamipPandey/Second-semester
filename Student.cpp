@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
-struct student {
+
+class student_ {
     public:
     string name;
     int age;
@@ -8,10 +9,11 @@ struct student {
 };
 
 int main(){
-    struct student s1;
-    s1.name="ram";
-    s1.age=12;
-    s1.crn=66;
-   cout<<s1.name<<" "<<s1.age<<" "<<s1.crn<<endl;
+    student_ s2; 
+    
+   s2.name="hari";
+   s2.age=15;
+   s2.crn=67;
+   cout<<s2.name<<" "<<s2.age<<" "<<s2.crn<<endl;
     return 0;
 }
