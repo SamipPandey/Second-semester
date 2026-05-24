@@ -2,18 +2,26 @@
 using namespace std;
 
 class student_ {
-    public:
+    private:
     string name;
     int age;
     int crn;
+
+    public:
+    void setdata(){
+    name="hari";
+    age=15;
+    crn=67;
+    }
+
+    void displaydata(){
+    cout<<name<<" "<<age<<" "<<crn<<endl;
+    }
 };
 
 int main(){
     student_ s2; 
-    
-   s2.name="hari";
-   s2.age=15;
-   s2.crn=67;
-   cout<<s2.name<<" "<<s2.age<<" "<<s2.crn<<endl;
+    s2.setdata();
+    s2.displaydata();
     return 0;
 }
