@@ -2,8 +2,10 @@
 #include<iomanip>
 using namespace std;
 int main(){
-    float x=123;
-    cout<<setw(20)<<setfill('-')<<x<<endl;
+
+    cout<<setw(5)<<"10"<<endl;
+    cout<<setw(5)<<"200"<<endl;
+    cout<<setw(5)<<"3000"<<endl;
     
     return 0;
 
