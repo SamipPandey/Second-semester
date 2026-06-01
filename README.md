@@ -21,6 +21,18 @@ This lab series covers the fundamentals of C++ and introduces Object-Oriented Pr
 
 ## 📂 Repository Structure
 
+The Classworks are organized sequentially by topic/week:
+
+```text
+├── class-works/
+│   ├── Default_argument.cpp
+|   |── Default_Constructor.cpp
+|   |--overloading_function.cpp
+|   |--thispointer.cpp
+|── 
+
+
+
 The labs are organized sequentially by topic/week:
 
 ```text
