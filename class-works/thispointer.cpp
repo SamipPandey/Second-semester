@@ -7,7 +7,7 @@ class student{
     int age;
 
     void setdata(string name, int age){
-        this->name=name;//points to the obeject 
+        (*this).name=name;//points to the obeject 
         this->age=age;
     }
     void showdata();
