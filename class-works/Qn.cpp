@@ -17,12 +17,18 @@ class box{
         this->volume=length*length*length;
         count++;
     }
+
+    static void showcounter(){
+        
+    cout<<"number of objects created: "<<box::count<<endl;
+
+    }
+
     void show(){
         cout<<"length: "<<length<<endl;
         cout<<"volume: "<<volume<<endl;
 
         
-    cout<<"number of objects created: "<<box::count<<endl;
     }
     ~box(){
         cout<<"object destroyed"<<endl;
@@ -37,6 +43,7 @@ int main(){
     b1.show();
     b2.show();
 
+    box::showcounter();
 
     return 0;
 
