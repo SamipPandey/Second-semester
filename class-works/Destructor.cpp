@@ -21,7 +21,7 @@ class student{
     void setdata(string="Null",int=0);
 
     ~student(){
-        cout<<"destructor called"<<endl;
+        cout<<"destructor called"<<endl; //used to destroy the object and free the memory allocated to the object
     }
 
 };
