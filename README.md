@@ -24,7 +24,6 @@ This lab series covers the fundamentals of C++ and introduces Object-Oriented Pr
 The Classworks are organized sequentially by topic/week:
 
 
-```text
 
 
 The labs are organized sequentially by topic/week:
