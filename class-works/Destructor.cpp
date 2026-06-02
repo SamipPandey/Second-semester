@@ -37,6 +37,10 @@ void student:: setdata(string name, int age){
 
 int main(){
     student s1,s2; // created in stack ; firsst in last out
+    {
+        student s3;
+        cout<<"s3 created"<<endl;
+    }
     s1.setdata("ram",15);
     s1.showdata();
     s2.setdata();
