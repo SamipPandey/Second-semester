@@ -7,7 +7,7 @@ using namespace std;
 class box{
     private: float length;
              float volume;
-             static int count;
+             static int count;//declare static variable
              
     public:box(){
         length=volume=0;
