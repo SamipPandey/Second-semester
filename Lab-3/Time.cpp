@@ -21,6 +21,7 @@ class timee{
     }
     
     timee add(timee);
+    void convert();
 
     void setdata(int d,int h,int m, int s){
         this->day=d;
@@ -34,6 +35,8 @@ class timee{
         cout<<"minute : "<<minute<<endl;
         cout<<"second : "<<second<<endl;
     }
+    ~timee(){
+    }
 };
 
 timee timee::add(timee t){
@@ -44,9 +47,24 @@ timee timee::add(timee t){
         temp.second=this->second+t.second;
         return temp;
 
-
-
     }
+
+void timee::convert(){
+    
+    if(this->second>=60){
+        this->minute+=this->second/60;
+        this->second=this->second%60;
+    }
+    if(this->minute>=60){
+        this->hour+=this->minute/60;
+        this->minute=this->minute%60;
+    }
+    if(this->hour>=24){
+        this->day+=this->hour/24;
+        this->hour=this->hour%24;
+    }
+
+}
 
 int main(){
     timee t1,t2,t3;
@@ -58,6 +76,7 @@ int main(){
     cin>>d>>h>>m>>s;
     t2.setdata(d,h,m,s);
     t3=t1.add(t2);
+    t3.convert();
     t3.showdata();
     return 0;
 }
