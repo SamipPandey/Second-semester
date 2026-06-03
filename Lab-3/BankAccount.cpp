@@ -1,105 +1,177 @@
-//create a class name acc holder (name , acc o, balance) having constructor and destructor
-//Diaply and must have settle , deposit, withdraw, transfer , status
-
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 
-class account{
-    private:
-    int accountnumber;
+class account {
+private:
+    int accountNumber; 
     string name;
     float balance;
-    bool status;
+    bool isActive; 
 
-    public:
-    account(){
-        accountnumber=0;
-        name="NULL";
-        balance=0.00;
-        status = false;
+public:
+    account() {
+        this->accountNumber = 0; 
+        this->name = "NULL"; 
+        this->balance = 0.0f; 
+        this->isActive = false;
+    }
+    account(int number, string name, float balance, bool status) {
+        this->accountNumber = number; 
+        this->name = name; 
+        this->balance = balance; 
+        this->isActive = status;
+    }
+    ~account() {}
+
+    int getAccountNumber() { 
+        return this->accountNumber; 
+    }
+    bool getStatus() { 
+        return this->isActive; 
     }
 
-    account(int a, string b, float c,bool d){
-        this->accountnumber=a;
-        this->name=b;
-        this->balance=c;
-        this->status=d;
+    void setData(int number, string name, float balance, bool status) {
+        this->accountNumber = number; 
+        this->name = name; 
+        this->balance = balance; 
+        this->isActive = status;
     }
 
-    void setdata(int , string , float, bool);
-    void showdata();
-    void checkstatus();
-    void deposit(int );
-    void withdraw(int);
+    void display() {
+        cout << "\n--- Account Details ---\nName           : " << this->name 
+             << "\nAccount Number : " << this->accountNumber << "\nBalance        : Nrs" << this->balance 
+             << "\nStatus         : " << (this->isActive ? "Active" : "Inactive/Settled") << "\n-----------------------\n";
+    }
 
+    void deposit(float amount) {
+        if (this->isActive && amount > 0) {
+            this->balance += amount;
+            cout << "Nrs" << amount << " deposited successfully.\n";
+        } else {
+            cout << "failed to deposit\n";
+        }
+    }
+
+    bool withdraw(float amount) {
+        if (!this->isActive || amount <= 0 || amount > this->balance) {
+            cout << "Transaction failed\n";
+            return false;
+        }
+        this->balance -= amount;
+        cout << "Nrs" << amount << " withdrawn success\n";
+        return true;
+    }
+
+    void transfer(account &recipient, float amount) {
+        if (this->isActive && recipient.getStatus() && this->withdraw(amount)) {
+            recipient.balance += amount;
+            cout << "Transferred Nrs" << amount << " to Account #" << recipient.getAccountNumber() << " successfully.\n";
+        } else {
+            cout << "Transfer failed.\n";
+        }
+    }
+
+    void settle() {
+        if (!this->isActive) { 
+            cout << "Account is already settled\n"; 
+            return; 
+        }
+        cout << "Settling account Returning remaining balance of Nrs" << this->balance << " to " << this->name << "\n";
+        this->balance = 0.0f; 
+        this->isActive = false;
+    }
 };
 
-void account::deposit(int a){
-    this->balance+=a;
-}
-void account::withdraw(int a){
-    this->balance-=a;
-}
-
-void account::showdata(){
-    cout<<"Name :"<<this->name<<endl;
-    cout<<"Account Number :"<<this->accountnumber<<endl;
-    cout<<"Balance :"<<this->balance<<endl;
-    cout<<"Status :"<<this->status<<endl;
-}
-
-void account::checkstatus(){
-    cout<<"Status :"<<this->status<<endl;
-}
-
-void account::setdata(int accountnumber, string name, float balance,bool status){
-    this->accountnumber=accountnumber;
-    this->name=name;
-    this->balance=balance;
-    this->status=status;
-
-}
-
-int main(){
-     
-    int aa;
-    static int count=0;
-    string name;
-    account a[count];
-
-    cout<<"Welcome to Kec-Bank"<<endl;
-
-    cout<<"======================="<<endl;
-    cout<<"press 1 to create an account"<<endl;
-    cout<<"press 2 to withdraw money"<<endl;
-    cout<<"press 3 to deposit money"<<endl;
-    cout<<"press 4 to check status"<<endl;
-    cin>>aa;
-    if(aa=1){
-        account a[count];
-        cout<<"Enter your name :"<<endl;
-        cin>>name;
-        count++;
-        a[count].setdata(count, name,0.00,true);
-        a[count].showdata();
-    }else if(aa=2){
-        cout<<"Amount of money to withdraw :";
-        float b;
-        cin>>b;
-        a[count].withdraw(b);
-        
-        a[count].showdata();
-
-    }else if(aa=3){
-        cout<<"Amount of money to deposit :";
-        float b;
-        cin>>b;
-        a[count].withdraw(b);
-        
-        a[count].showdata();
+int findAccount(account accounts[], int count, int number) {
+    for (int i = 0; i < count; i++) {
+        if (accounts[i].getAccountNumber() == number) {
+            return i;
+        }
     }
+    return -1;
+}
 
+int main() {
+    account accounts[100];
+    int total = 0, choice, number, count;
+    float amount;
 
+    cout << "Welcome to Kec-Bank\n";
+    while (true) {
+        cout << "\n===============================" << endl;
+        cout << "1. Create Account" << endl;
+        cout << "2. Withdraw" << endl;
+        cout << "3. Deposit" << endl;
+        cout << "4. Transfer" << endl;
+        cout << "5. Display" << endl;
+        cout << "6. Settle" << endl;
+        cout << "7. Exit" << endl;
+        cout << "Enter choice: ";
+        cin >> choice;
+        if (choice == 7) {
+            break;
+        }
+
+        if (choice == 1) {
+            if (total >= 100) { 
+                cout << "Bank storage full!\n"; 
+                continue; 
+            }
+            string name; 
+            float balance;
+            cout << "Enter name: "; 
+            cin.ignore(); 
+            getline(cin, name);
+            cout << "Enter initial deposit: Nrs"; 
+            cin >> balance;
+            accounts[total].setData(total + 1, name, balance, true);
+            accounts[total++].display();
+            continue;
+        }
+
+        cout << "Enter Account Number: "; 
+        cin >> number;
+        count = findAccount(accounts, total, number);
+        if (count == -1) { 
+            cout << "Account not found.\n"; 
+            continue; 
+        }
+
+        switch (choice) {
+            case 2: 
+                cout << "Enter amount: "; 
+                cin >> amount; 
+                accounts[count].withdraw(amount); 
+                break;
+            case 3: 
+                cout << "Enter amount: "; 
+                cin >> amount; 
+                accounts[count].deposit(amount); 
+                break;
+            case 4: {
+                cout << "Enter Recipient Account Number: "; 
+                int recipientNumber; 
+                cin >> recipientNumber;
+                int recipientNumberFound = findAccount(accounts, total, recipientNumber);
+                if (recipientNumberFound != -1) {
+                    cout << "Enter transfer amount: Nrs"; 
+                    cin >> amount;
+                    accounts[count].transfer(accounts[recipientNumberFound], amount);
+                } else {
+                    cout << "Recipient account not found.\n";
+                }
+                break;
+            }
+            case 5: 
+                accounts[count].display(); 
+                break;
+            case 6: 
+                accounts[count].settle(); 
+                break;
+            default: 
+                cout << "Invalid\n";
+        }
+    }
     return 0;
 }
