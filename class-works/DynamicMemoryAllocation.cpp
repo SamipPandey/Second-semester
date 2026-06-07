@@ -23,17 +23,29 @@ class student{
         }
 
         void display(){
-            cout<<"Roll: "<<roll<<"\nName: "<<name<<endl;
+            cout<<"Roll: "<<roll<<"\tName: "<<name<<endl;
         }
 
 };
 
 int main(){
-    student s1;
     int roll;
     string name;
-    cout<<"Enter roll and name: ";
-    cin>>roll>>name;
-    s1.setdata(roll,name);
-    s1.display();
+    int n;
+    cout<<"Enter the number of students: ";
+    cin>>n;
+    student *x=new student[n];
+    for(int i=0;i<n;i++){
+        cout<<"Student "<<i+1<<":\n";
+    cout<<"Enter name :";
+    cin>>name;
+    cout<<"Enter roll :";
+    cin>>roll;
+    x[i].setdata(roll,name);
+    }
+       for(int i=0;i<n;i++){
+    x[i].display();
+       }
+
+       delete[] x;
 }
