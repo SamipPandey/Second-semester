@@ -37,11 +37,11 @@ int main(){
     student *x=new student[n];
     for(int i=0;i<n;i++){
         cout<<"Student "<<i+1<<":\n";
-    cout<<"Enter name :";
-    cin>>name;
-    cout<<"Enter roll :";
-    cin>>roll;
-    x[i].setdata(roll,name);
+        cout<<"Enter name :";
+        cin>>name;
+        cout<<"Enter roll :";
+        cin>>roll;
+        x[i].setdata(roll,name);
     }
        for(int i=0;i<n;i++){
     x[i].display();
