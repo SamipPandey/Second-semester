@@ -40,10 +40,10 @@ dist dist::add(dist d){
 int main(){
     dist d1,d2,d3;
     int f,i;
-    cout<<"Enter the distance in feet and inch for distance 1:"<<endl;
+    cout<<"Enter the distance in feet and inch for distance 1 :";
     cin>>f>>i;
     d1=dist(f,i);
-    cout<<"Enter the distance in feet and inch for distance 1:"<<endl;
+    cout<<"\nEnter the distance in feet and inch for distance 2 :";
     cin>>f>>i;
     d2=dist(f,i);
     d3=d1.add(d2);
