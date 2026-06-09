@@ -106,7 +106,7 @@ int main() {
         if (choice == 1) {
             string name; 
             float balance;
-            cout << "Enter name (single word): "; 
+            cout << "Enter name for the account: "; 
             cin >> name;
             cout << "Enter initial deposit: Nrs"; 
             cin >> balance;
