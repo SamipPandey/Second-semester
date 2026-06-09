@@ -41,7 +41,7 @@ public:
     void display() {
         cout << "\n--- Account Details ---\nName           : " << this->name 
              << "\nAccount Number : " << this->accountNumber << "\nBalance        : Nrs" << this->balance 
-             << "\nStatus         : " << (this->isActive ? "Active" : "Inactive/Settled") << "\n-----------------------\n";
+             << "\nStatus         : " << (this->isActive ? "Active" : "Inactive") << "\n-----------------------\n";
     }
 
     void deposit(float amount) {
@@ -71,16 +71,6 @@ public:
             cout << "Transfer failed.\n";
         }
     }
-
-    void settle() {
-        if (!this->isActive) { 
-            cout << "Account is already settled\n"; 
-            return; 
-        }
-        cout << "Settling account Returning remaining balance of Nrs" << this->balance << " to " << this->name << "\n";
-        this->balance = 0.0f; 
-        this->isActive = false;
-    }
 };
 
 int findAccount(account accounts[], int count, int number) {
@@ -105,28 +95,25 @@ int main() {
         cout << "3. Deposit" << endl;
         cout << "4. Transfer" << endl;
         cout << "5. Display" << endl;
-        cout << "6. Settle" << endl;
-        cout << "7. Exit" << endl;
+        cout << "6. Exit" << endl;
         cout << "Enter choice: ";
         cin >> choice;
-        if (choice == 7) {
+        
+        if (choice == 6) {
             break;
         }
 
         if (choice == 1) {
-            if (total >= 100) { 
-                cout << "Bank storage full!\n"; 
-                continue; 
-            }
             string name; 
             float balance;
-            cout << "Enter name: "; 
-            cin.ignore(); 
-            getline(cin, name);
+            cout << "Enter name (single word): "; 
+            cin >> name;
             cout << "Enter initial deposit: Nrs"; 
             cin >> balance;
+            
             accounts[total].setData(total + 1, name, balance, true);
-            accounts[total++].display();
+            accounts[total].display();
+            total++;
             continue;
         }
 
@@ -151,13 +138,13 @@ int main() {
                 break;
             case 4: {
                 cout << "Enter Recipient Account Number: "; 
-                int recipientNumber; 
-                cin >> recipientNumber;
-                int recipientNumberFound = findAccount(accounts, total, recipientNumber);
-                if (recipientNumberFound != -1) {
+                int rNumber; 
+                cin >> rNumber;
+                int rCount = findAccount(accounts, total, rNumber);
+                if (rCount != -1) {
                     cout << "Enter transfer amount: Nrs"; 
                     cin >> amount;
-                    accounts[count].transfer(accounts[recipientNumberFound], amount);
+                    accounts[count].transfer(accounts[rCount], amount);
                 } else {
                     cout << "Recipient account not found.\n";
                 }
@@ -165,9 +152,6 @@ int main() {
             }
             case 5: 
                 accounts[count].display(); 
-                break;
-            case 6: 
-                accounts[count].settle(); 
                 break;
             default: 
                 cout << "Invalid\n";
