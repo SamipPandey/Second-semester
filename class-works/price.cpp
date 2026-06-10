@@ -26,29 +26,27 @@ class weight{
     void display(){
         cout<<"Weight: "<<kg<<" kg "<<gram<<" g"<<endl;
     }
-    friend price convert(weight,price);
+    friend void convert(weight &,price &);
 };
 
 
 class price{
-    const float rate;
+    const float rate = 1000;
     float total;
     public:
-    price(float r=0,float t=0):rate(r),total(t){}//immutable data member
     void display(){
         cout<<"Price: "<<total<<" rupees"<<endl;
     }
-    friend price convert(weight,price);
+    friend void convert(weight &,price &);
 };
 
 
-price convert(weight w, price p){
+void convert(weight &w, price &p){
     float rate=1000;
     float total=0;
     float totalweight=w.kg+float(w.gram/1000);
     total=totalweight*p.rate;
-    return price(rate,total);
-
+    p.total=total;
 }
 
 
@@ -58,8 +56,6 @@ int main(){
 
     
     w.getdata();
-    
-
     convert(w,p);
 
     p.display();
