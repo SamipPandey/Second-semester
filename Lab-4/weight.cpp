@@ -7,6 +7,18 @@ using namespace std;
 class weight;
 class price;
 
+
+class price{
+    const float rate = 1000;
+    float total;
+    public:
+    void display(){
+        cout<<"Price: "<<total<<" rupees"<<endl;
+    }
+    void convert(weight w);
+
+};
+
 class weight{
     private:
     float kg;
@@ -26,23 +38,13 @@ class weight{
     void display(){
         cout<<"Weight: "<<kg<<" kg "<<gram<<" g"<<endl;
     }
-    friend class price;
+    friend void price::convert(weight w);
 };
 
 
-class price{
-    const float rate = 1000;
-    float total;
-    public:
-    void display(){
-        cout<<"Price: "<<total<<" rupees"<<endl;
-    }
-    void convert(weight w);
-
-};
 
 
-void price::convert(weight w){
+void price::convert(weight w ){
     float total_kg = w.kg + w.gram/1000;
     this->total = total_kg * this->rate;
     this->display();
