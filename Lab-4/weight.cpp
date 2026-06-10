@@ -26,7 +26,7 @@ class weight{
     void display(){
         cout<<"Weight: "<<kg<<" kg "<<gram<<" g"<<endl;
     }
-    friend void convert(weight &,price &);
+    friend class price;
 };
 
 
@@ -37,16 +37,15 @@ class price{
     void display(){
         cout<<"Price: "<<total<<" rupees"<<endl;
     }
-    friend void convert(weight &,price &);
+    void convert(weight w);
+
 };
 
 
-void convert(weight &w, price &p){
-    float rate=1000;
-    float total=0;
-    float totalweight=w.kg+float(w.gram/1000);
-    total=totalweight*p.rate;
-    p.total=total;
+void price::convert(weight w){
+    float total_kg = w.kg + w.gram/1000;
+    this->total = total_kg * this->rate;
+    this->display();
 }
 
 
@@ -56,9 +55,7 @@ int main(){
 
     
     w.getdata();
-    convert(w,p);
-
-    p.display();
+    p.convert(w);
 
     return 0;
 }
