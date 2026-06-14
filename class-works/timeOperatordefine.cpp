@@ -39,14 +39,25 @@ class Time{
             }
             this->hour++;
         }
+        Time operator++();
     
 };
+
+inline Time Time::operator++(){//prefix operator overloading
+    ++second;
+    ++minute;
+    ++hour;
+    return *this;
+
+}
 int main(){
-    Time t1;
+    Time t1,t2;
     t1.getdata();
     t1.displaydata();
     cout<<"after increment"<<endl;
     t1++;
+    t1.displaydata();
+    t2=++t1;
     t1.displaydata();
     return 0;
 
