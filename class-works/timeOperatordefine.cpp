@@ -58,7 +58,7 @@ int main(){
     t1++;
     t1.displaydata();
     t2=++t1;
-    t1.displaydata();
+    t2.displaydata();
     return 0;
 
 }
