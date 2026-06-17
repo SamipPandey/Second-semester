@@ -21,6 +21,7 @@ class Complex{
     void displaydata(){
         cout<<"Sum is"<<real<<"+"<<img<<"i"<<endl;
     }
+
     Complex operator+(Complex r){
         int a=this->real+r.real;
         int b=this->img+r.img;
