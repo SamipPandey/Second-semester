@@ -1,27 +1,35 @@
-//wap a simple program to covert user deined datatype us dollar into basic datatype nepali rupees and vice versa
 #include<iostream>
 using namespace std;
-class USdollar{
-    public:
+
+class USdollar {
+public:
     float dollar;
-    public:
-    USdollar(){
-        dollar=0;
+    USdollar() {
+        dollar = 0;
     }
-    USdollar(float a):dollar(a){}
-    ~USdollar(){}
-    USdollar(int x){
-        dollar=150*x;
+    
+    USdollar(float a) : dollar(a) {}
+    
+    ~USdollar() {}
+
+    USdollar(int x) {
+        dollar = static_cast<float>(x) / 150.0; 
     }
-    operator int(){
-        int x=d.dollar;
-    return x/150;
-}
+
+    operator int() {
+        return dollar * 150; 
+    }
 };
 
-int main(){
-    int nr=100;
-    USdollar d=nr;
-    cout<<d.dollar<<endl;
+int main() {
+    //basic to user defined
+    int nr = 15000; 
+    USdollar d = nr; 
+    cout << "Rs. " << nr << " in USD is: $" << d.dollar << endl;
+    //user defined to basic
+    USdollar Dol = int(50.5); 
+    int totalRupees = Dol; 
+    cout << "$" << Dol.dollar << " in NPR is : Rs. " << totalRupees << endl;
+
     return 0;
 }
