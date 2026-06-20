@@ -31,11 +31,6 @@ The labs are organized sequentially by topic/week:
 ```text
 |
 +---class-works
-|   +---.vscode
-|   |       c_cpp_properties.json
-|   |       launch.json
-|   |       settings.json
-|   |
 |   +---Assignments
 |   |   +---Questions
 |   |   |       Overload-usingMemberFunction.cpp
