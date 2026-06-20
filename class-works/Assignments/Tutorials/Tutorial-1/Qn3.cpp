@@ -6,12 +6,12 @@ using namespace std;
 
 class polar;
 class cartisan{
-    int x;
-    int y;
+    float x;
+    float y;
     public:
         cartisan(){
-        x=0;
-        y=0;
+        x=0.0f;
+        y=0.0f;
         }
 
     cartisan(int a, int b):x(a),y(b){}
@@ -23,17 +23,11 @@ class cartisan{
         cin>>y;
 
     }
-    int getx(){
-        return x;
-    }
-    int gety(){
-        return y;
-    }
     friend class polar;
 
 };
 class polar{
-    int r;
+    float r;
     float theta;
     public:
     polar(){
@@ -43,8 +37,8 @@ class polar{
     polar(int a, int b):r(a),theta(b){}
     ~polar(){}
     void conversion(cartisan& p){
-        int x=p.getx();
-        int y=p.gety();
+        int x=p.x;
+        int y=p.y;
         r=sqrt(x*x+y*y);
         theta=atan2(y,x);
     }
