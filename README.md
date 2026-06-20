@@ -29,17 +29,63 @@ The Classworks are organized sequentially by topic/week:
 The labs are organized sequentially by topic/week:
 
 ```text
-├── class-works/
-│   ├── Default_argument.cpp
-|   |── Default_Constructor.cpp
-|   |--overloading_function.cpp
-|   |--thispointer.cpp
-├── Lab_01_Basic_Class_Objects/
-│   ├── car.cpp
-|   |── student.cpp
-|── Lab_02_Basics_/
-|   |── Manipulators.cpp
-|   |── Inline Function.cpp
-|   |── FunctionOverloading.cpp
-|   |── DefaultArguments.cpp
-└── README.md
++---class-works
+|   +---Assignments
+|   |   +---Questions
+|   |   |       PostDecrement-member.cpp
+|   |   |       PostIncrement-member.cpp
+|   |   |       PreDecrement-member.cpp
+|   |   |       PreIncrement-member.cpp
+|   |   |
+|   |   \---Tutorials
+|   |       \---Tutorial-1
+|   +---Week-1
+|   |       Default_argument.cpp
+|   |       overloading_function.cpp
+|   |       thispointer.cpp
+|   |
+|   +---Week-2
+|   |       Default_Constructor.cpp
+|   |       Destructor.cpp
+|   |       PassByReference.cpp
+|   |       Qn.cpp
+|   |
+|   +---Week-3
+|   |       Copy_Constructor.cpp
+|   |       distance.cpp
+|   |       DynamicMemoryAllocation.cpp
+|   |       FriendFunction.cpp
+|   |       price.cpp
+|   |       uniquepointer.cpp
+|   |       weight.cpp
+|   |
+|   \---Week-4
+|           operatordefine.cpp
+|           timeOperatordefine.cpp
+|           typeconversion.cpp
+|           typeconversionclass.cpp
+|           xor.cpp
+|
++---Lab-1
+|       car.cpp
+|       dog.cpp
+|       Student.cpp
+|
++---Lab-2
+|       DefaultArgument.cpp
+|       enum.cpp
+|       FunctionOverLoading.cpp
+|       InlineFunction.cpp
+|       Manipulator.cpp
+|
++---Lab-3
+|       BankAccount.cpp
+|       Time.cpp
+|
++---Lab-4
+|       weight.cpp
+|
++---Lab-5
+        complexnumber.cpp
+        complexwithfriend.cpp
+        relationaloperator.cpp
