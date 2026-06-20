@@ -29,16 +29,29 @@ The Classworks are organized sequentially by topic/week:
 The labs are organized sequentially by topic/week:
 
 ```text
+|
 +---class-works
+|   +---.vscode
+|   |       c_cpp_properties.json
+|   |       launch.json
+|   |       settings.json
+|   |
 |   +---Assignments
 |   |   +---Questions
-|   |   |       PostDecrement-member.cpp
-|   |   |       PostIncrement-member.cpp
-|   |   |       PreDecrement-member.cpp
-|   |   |       PreIncrement-member.cpp
+|   |   |       Overload-usingMemberFunction.cpp
+|   |   |       Overload-usingMemberFunction.exe
+|   |   |       Overloading-usingFriendFunction.cpp
+|   |   |       Overloading-usingFriendFunction.exe
 |   |   |
 |   |   \---Tutorials
 |   |       \---Tutorial-1
+|   |               Qn1.txt
+|   |               Qn2.cpp
+|   |               Qn2.exe
+|   |               Qn3.cpp
+|   |               Qn3.exe
+|   |               Qn4.txt
+|   |
 |   +---Week-1
 |   |       Default_argument.cpp
 |   |       overloading_function.cpp
@@ -68,24 +81,38 @@ The labs are organized sequentially by topic/week:
 |
 +---Lab-1
 |       car.cpp
+|       car.exe
 |       dog.cpp
+|       dog.exe
 |       Student.cpp
 |
 +---Lab-2
 |       DefaultArgument.cpp
+|       DefaultArgument.exe
 |       enum.cpp
+|       enum.exe
 |       FunctionOverLoading.cpp
+|       FunctionOverLoading.exe
 |       InlineFunction.cpp
+|       InlineFunction.exe
 |       Manipulator.cpp
+|       Manipulator.exe
 |
 +---Lab-3
 |       BankAccount.cpp
+|       BankAccount.exe
 |       Time.cpp
+|       Time.exe
 |
 +---Lab-4
 |       weight.cpp
+|       weight.exe
 |
-+---Lab-5
+\---Lab-5
         complexnumber.cpp
+        complexnumber.exe
         complexwithfriend.cpp
+        complexwithfriend.exe
         relationaloperator.cpp
+        relationaloperator.exe
+
