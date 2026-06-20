@@ -23,6 +23,13 @@ class cartisan{
         cin>>y;
 
     }
+    void conversion(polar&);
+
+    void displaydata(){
+        cout<<"x is :"<<x<<endl;
+        cout<<"y is :"<<y<<endl;
+
+    }
     friend class polar;
 
 };
@@ -36,6 +43,13 @@ class polar{
     }
     polar(int a, int b):r(a),theta(b){}
     ~polar(){}
+     void setdata(){
+        cout<<"Enter value of r :";
+        cin>>r;
+        cout<<"Enter the value of theta :";
+        cin>>theta;
+
+    }
     void conversion(cartisan& p){
         int x=p.x;
         int y=p.y;
@@ -46,8 +60,15 @@ class polar{
         cout<<"r is :"<<r<<endl;
         cout<<"theta is :"<<theta<<endl;
     }
+    friend class cartisan;
 
 };
+
+void cartisan::conversion(polar &p) {
+    x = p.r * cos(p.theta);
+    y = p.r * sin(p.theta);
+}
+
 int main(){
 
     cartisan a;
@@ -55,6 +76,10 @@ int main(){
     a.setdata();
     b.conversion(a);
     b.displaydata();
+
+    b.setdata();
+    a.conversion(b);
+    a.displaydata();
 
     return 0;
 }
