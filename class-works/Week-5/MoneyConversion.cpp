@@ -45,8 +45,9 @@ class usd{
 
 int main(){
     nrp a;
-    usd b=a;
     a.setdata();
+    usd b=a;
+    
     b.displaydata();
     return 0;
 }
