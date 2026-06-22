@@ -11,7 +11,7 @@ class animal{
 class dog :public animal{
     public:
     void sound(){
-        animal::sound();
+        animal::sound();//if this is not called the only the functions of derived class is called because same function is found in within the scope of derived class
         cout<<"Dog Bark"<<endl;
     }
 };
