@@ -3,7 +3,7 @@
 using namespace std;
 
 class animal{
-    public:
+    protected:
     void sound(){
         cout<<"animal sound"<<endl;
     }
@@ -19,7 +19,7 @@ class dog :public animal{
 int main(){
     dog d;
     d.sound();
-    d.animal::sound();
+    // d.animal::sound(); // this is inacessible outside the class beacause it is protecetd member function and can only be acessed within class
 
     return 0;
 }
