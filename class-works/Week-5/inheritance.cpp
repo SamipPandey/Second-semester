@@ -19,6 +19,7 @@ class dog :public animal{
 int main(){
     dog d;
     d.sound();
+    d.animal::sound();
 
     return 0;
 }
